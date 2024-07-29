@@ -22,7 +22,5 @@ Continue until all pairs are matched.
 
 
 # Screenshots
-
-![Screenshot 2024-07-29 102405](https://github.com/user-attachments/assets/0c7dfa79-fd24-488d-b735-d313f2b35364)
-![Screenshot 2024-07-29 103009](https://github.com/user-attachments/assets/ff040003-0f8a-4c96-8766-a145c4d72c2a)
-
+![Screenshot 2024-07-29 103009](https://github.com/user-attachments/assets/82baf76a-87fb-4719-9e8b-724170d87de2)
+![Screenshot 2024-07-29 102405](https://github.com/user-attachments/assets/dbe302e7-f5dd-4541-bdbe-521487fa750e)
