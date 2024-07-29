@@ -9,15 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '🐨', '🐨', '🐯', '🐯', '🦁', '🦁', '🐮', '🐮',
         '🐷', '🐷', '🐸', '🐸', '🐵', '🐵', '🐔', '🐔'
     ];
-    const hardCards = [
-        '🐶', '🐶', '🐱', '🐱', '🐭', '🐭', '🐹', '🐹',
-        '🐰', '🐰', '🦊', '🦊', '🐻', '🐻', '🐼', '🐼',
-        '🐨', '🐨', '🐯', '🐯', '🦁', '🦁', '🐮', '🐮',
-        '🐷', '🐷', '🐸', '🐸', '🐵', '🐵', '🐔', '🐔',
-        '🐧', '🐧', '🐦', '🐦', '🐤', '🐤', '🦉', '🦉',
-        '🦅', '🦅', '🦆', '🦆', '🦇', '🦇', '🐺', '🐺',
-        '🦄', '🦄', '🐴', '🐴', '🐗', '🐗'
-    ];
 
     const gameBoard = document.getElementById('game-board');
     const restartButton = document.getElementById('restart');
@@ -70,9 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case '6':
                 gameBoard.style.gridTemplateColumns = `repeat(5, 1fr)`;
-                break;
-            case '8':
-                gameBoard.style.gridTemplateColumns = `repeat(6, 1fr)`;
                 break;
         }
         currentCards.forEach((card, index) => {
@@ -197,20 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 case '4':
                     currentCards = easyCards;
                     gameBoard.classList.add('easy');
-                    gameBoard.classList.remove('medium', 'hard');
+                    gameBoard.classList.remove('medium');
                     lives = 4;
                     break;
                 case '6':
                     currentCards = mediumCards;
                     gameBoard.classList.add('medium');
-                    gameBoard.classList.remove('easy', 'hard');
+                    gameBoard.classList.remove('easy');
                     lives = 6;
-                    break;
-                case '8':
-                    currentCards = hardCards;
-                    gameBoard.classList.add('hard');
-                    gameBoard.classList.remove('easy', 'medium');
-                    lives = 8;
                     break;
             }
             createBoard();
@@ -265,25 +247,4 @@ document.addEventListener('DOMContentLoaded', () => {
             unmutePath.style.fill = 'red';
             mutePath.style.fill = 'red';
             backgroundMusic.pause();
-        } else {
-            unmutePath.style.fill = '#ffdd00';
-            mutePath.style.fill = '#ffdd00';
-            if (gameStarted) backgroundMusic.play();
         }
-    }
-
-    muteButton.addEventListener('click', toggleMute);
-    restartButton.addEventListener('click', restartGame);
-    restartOverButton.addEventListener('click', restartGame);
-    startButton.addEventListener('click', startGame);
-    difficultySelect.addEventListener('change', restartGame);
-
-    playAgainButton.addEventListener('click', () => {
-        congratulationsElement.style.display = 'none';
-        restartGame();
-    });
-
-    // Show start screen initially and hide game elements
-    startScreen.style.display = 'block';
-    gameElements.forEach(element => element.classList.add('hidden'));
-});
