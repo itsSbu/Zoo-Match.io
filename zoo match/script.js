@@ -54,13 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard() {
         shuffle(currentCards);
         gameBoard.innerHTML = '';
-        const gridSize = Math.sqrt(currentCards.length);
         switch (difficultySelect.value) {
             case '4':
                 gameBoard.style.gridTemplateColumns = `repeat(4, 1fr)`;
+                gameBoard.style.gridTemplateRows = '';
                 break;
             case '6':
                 gameBoard.style.gridTemplateColumns = `repeat(5, 1fr)`;
+                gameBoard.style.gridTemplateRows = `repeat(7, 1fr)`;
                 break;
         }
         currentCards.forEach((card, index) => {
