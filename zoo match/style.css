@@ -152,12 +152,6 @@ select {
     background: linear-gradient(145deg,yellow, yellow);
 }
 
-/* Hard difficulty colors */
-.hard .card .card-front {
-    background-color: #8b0000;
-    background: linear-gradient(145deg, #8b0000, #b22222);
-}
-
 button {
     padding: 10px 20px;
     font-size: 16px;
