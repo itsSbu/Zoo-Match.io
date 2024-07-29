@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameBoard.style.gridTemplateColumns = `repeat(4, 1fr)`;
                 break;
             case '6':
-                gameBoard.style.gridTemplateColumns = `repeat(5, 1fr)`;
+                gameBoard.style.gridTemplateColumns = `repeat(6, 1fr)`;
                 break;
         }
         currentCards.forEach((card, index) => {
@@ -244,7 +244,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMute() {
         isMuted = !isMuted;
         if (isMuted) {
-            unmutePath.style.fill = 'red';
-            mutePath.style.fill = 'red';
+            unmutePath.style.display = 'none';
+            mutePath.style.display = 'block';
             backgroundMusic.pause();
+        } else {
+            unmutePath.style.display = 'block';
+            mutePath.style.display = 'none';
+            if (gameStarted) backgroundMusic.play();
         }
+    }
+
+    muteButton.addEventListener('click', toggleMute);
+    restartButton.addEventListener('click', restartGame);
+    restartOverButton.addEventListener('click', restartGame);
+    startButton.addEventListener('click', startGame);
+    difficultySelect.addEventListener('change', restartGame);
+
+    playAgainButton.addEventListener('click', () => {
+        congratulationsElement.style.display = 'none';
+        restartGame();
+    });
+
+    // Show start screen initially and hide game elements
+    startScreen.style.display = 'block';
+    gameElements.forEach(element => element.classList.add('hidden'));
+});
