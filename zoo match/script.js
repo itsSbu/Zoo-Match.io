@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameBoard.style.gridTemplateColumns = `repeat(4, 1fr)`;
                 break;
             case '6':
-                gameBoard.style.gridTemplateColumns = `repeat(6, 1fr)`;
+                gameBoard.style.gridTemplateColumns = `repeat(5, 1fr)`;
                 break;
         }
         currentCards.forEach((card, index) => {
