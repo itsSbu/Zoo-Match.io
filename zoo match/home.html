@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Zoo Match</h1>
+    <div class="info">
+        <span id="moves">Moves: 0</span>
+        <span id="timer">Time: 0s</span>
+        <span id="lives">Lives: 3</span>
+        <button id="mute-button" class="mute-button">
+            <svg id="mute-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path id="unmute-path" d="M12 3v18c-1.105 0-2-.895-2-2H7c-1.105 0-2-.895-2-2V9c0-1.105.895-2 2-2h3c0-1.105.895-2 2-2zM19 9v6h-2V9h2zm-4 2h-2v2h2v-2z"/>
+                <path id="mute-path" d="M6 3v18c-1.105 0-2-.895-2-2H2c-1.105 0-2-.895-2-2V9c0-1.105.895-2 2-2h2c0-1.105.895-2 2-2zm13 8v-1.5L18.5 10 18 9.5l-1.5 1.5H15v2h1.5l1.5 1.5.5-.5z" style="display: none;"/>
+            </svg>
+        </button>
+    </div>
+    <div class="controls">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+            <option value="4">Easy (4x4)</option>
+            <option value="6">Medium (6x6)</option>
+            <option value="8">Hard (8x8)</option>
+        </select>
+    </div>
+    <div id="game-board"></div>
+    <button id="restart">Restart Game</button>
+    <div id="start-screen">
+        <h2>Welcome to the Zoo Match</h2>
+        <button id="start-game">Start Game</button>
+    </div>
+    <div id="game-over">
+        <h2>Game Over</h2>
+        <p id="final-score"></p>
+        <button id="restart-over">Restart Game</button>
+    </div>
+    <div id="loading-screen">Loading...</div>
+    <audio id="click-sound" src="click.wav"></audio>
+    <audio id="background-music" src="background.ogg" loop></audio>
+    <audio id="game-over-sound" src="gameover.wav"></audio>
+    <div id="congratulations" class="hidden">
+        <h2>Congratulations!</h2>
+        <p>You matched all the cards!</p>
+        <p id="final-congrats-score"></p>
+        <button id="play-again">Play Again</button>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

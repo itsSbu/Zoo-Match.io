@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Freckle Face', cursive;
+    background: url('a.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 36px;
+    color: #ffdd00;
+    text-shadow: 2px 2px 4px #000;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 15px #ffdd00;
+    }
+    to {
+        text-shadow: 2px 2px 20px #ebebeb;
+    }
+}
+
+.info {
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    gap: 20px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+label, select {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: 900;
+
+}
+.hidden {
+    display: none;
+}
+.mute-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+    outline: none;
+}
+
+.mute-button svg {
+    fill: #ffdd00;
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s;
+}
+
+.mute-button svg:hover {
+    fill: #fff;
+}
+select {
+    background-color: #ffdd00;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #000;
+    font-weight: 900;
+}
+
+#game-board {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+    max-width: 90vw;
+    overflow: auto;
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.6s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+    position: relative;
+    perspective: 1000px;
+    background: linear-gradient(145deg, #2e8b57, #3cb371);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+
+.card .card-front, .card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.6s;
+}
+
+.card .card-front {
+    background-color: #2e8b57;
+    transform: rotateY(0deg);
+    background: linear-gradient(145deg, #2e8b57, #3cb371);
+    font-size: 32px; /* Increased font size */
+}
+
+.card .card-back {
+    background-color: #f4f4f4;
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #ffdd00, #ffffff);
+    font-size: 32px; /* Increased font size */
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Easy difficulty colors */
+.easy .card .card-front {
+    background-color: #2e8b57;
+    background: linear-gradient(145deg, #2e8b57, #3cb371);
+}
+
+/* Medium difficulty colors */
+.medium .card .card-front {
+    background-color:yellow;
+    background: linear-gradient(145deg,yellow, yellow);
+}
+
+/* Hard difficulty colors */
+.hard .card .card-front {
+    background-color: #8b0000;
+    background: linear-gradient(145deg, #8b0000, #b22222);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffdd00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #3cb371;
+    transform: scale(1.1);
+}
+
+#start-screen,
+#game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    animation: popup 0.5s ease-out;
+}
+
+#start-screen h2,
+#game-over h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#start-screen button,
+#game-over button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffdd00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#start-screen button:hover,
+#game-over button:hover {
+    background-color: #3cb371;
+    transform: scale(1.1);
+}
+#congratulations {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    animation: popup 0.5s ease-out;
+}
+
+#congratulations h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#congratulations p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#congratulations button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #009578;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#congratulations button:hover {
+    background-color: #007a5a;
+}
+
+
+@keyframes popup {
+    from {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 7s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 5s forwards;
+}
+
+.glow-red {
+    color: #ff0000;
+    animation: glow-red 1s ease-in-out infinite alternate;
+}
+
+
+#game-over h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#game-over p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.control{
+    color: brown;
+}
+
+/* Loading screen styles */
+#loading-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 10;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Glow red for lives <= 2 */
+.glow-red {
+    color: #ff0000;
+    animation: glow-red 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-red {
+    from {
+        text-shadow: 0 0 5px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 20px #ff0000;
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #game-board {
+        gap: 5px;
+    
+    }
+
+    .card {
+        width: 60px;
+        height: 60px;
+        font-size: 36px; /* Increased font size */
+    }
+}
+
+@media (max-width: 480px) {
+    #game-board {
+        gap: 10px;
+        
+    }
+
+    .card {
+        width: 60px;
+        height: 60px;
+        font-size: 28px; /* Increased font size */
+    }
+}
