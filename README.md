@@ -2,6 +2,9 @@ Zoo Match Memory Game
 
 Zoo Match Memory Game is an engaging and educational card matching game designed for kids and adults alike. Players test their memory skills by matching pairs of adorable zoo animals. With vibrant illustrations and a user-friendly interface, this game offers endless fun while improving cognitive abilities and concentration. Perfect for family game nights or solo play, Zoo Match Memory Game brings the wonders of the animal kingdom to your fingertips!
 
+Click below link to open the game
+https://itssbu.github.io/Zoo-Match.io/
+
 ## Features
 
 - Match pairs of zoo animals
