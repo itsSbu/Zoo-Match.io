@@ -79,15 +79,15 @@ select {
 
 #game-board {
     display: grid;
-    gap: 10px;
+    gap: 1vw;
     margin: 20px 0;
-    max-width: 90vw;
+    max-width: 70vw;
     overflow: auto;
 }
 
 .card {
-    width: 80px;
-    height: 80px;
+    width: 5vw; 
+    height: 5vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +100,6 @@ select {
     background: linear-gradient(145deg, #2e8b57, #3cb371);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
-
 .card.flipped .card-front {
     transform: rotateY(180deg);
 }
